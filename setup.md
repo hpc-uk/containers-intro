@@ -22,7 +22,7 @@ If you have Windows 10 Home Edition:
 
 #### Apple macOS
 Either:  
- - Try this first, although it will not work with older versions of macOS. Install the [Docker Desktop (Mac)](https://hub.docker.com/editions/community/docker-ce-desktop-mac), or failing that:  
+ - Try this first, although it will not work with older versions of macOS. Install the [Docker Desktop (Mac)](https://hub.docker.com/editions/community/docker-ce-desktop-mac), or **failing that**:  
  - Install the [Docker Toolbox (Mac)](https://docs.docker.com/toolbox/toolbox_install_mac/).
 
 #### Linux:  
