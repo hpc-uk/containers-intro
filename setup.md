@@ -16,6 +16,7 @@ Please try to install the appropriate software from the list below depending on 
 If you have Windows 10 Pro Edition:
  - First try to install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), or **failing that**;
  - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).  
+
 If you have Windows 10 Home Edition:  
  - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
 
