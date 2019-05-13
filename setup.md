@@ -11,19 +11,20 @@ Unfortunately, in many common situations installing Docker on your laptop will n
 
 Please try to install the appropriate software from the list below depending on the operating system that your laptop is running:
 #### Microsoft Windows
-**You must have admin rights to run docker!** Some parts of the lesson will work without running as admin but if you are unable to `Run as admin` on your machine some of this workshop might not work easily.
+**You must have admin rights to run docker!** Some parts of the lesson will work without running as admin but if you are unable to `Run as admin` on your machine some of this workshop might not work easily.  
+
 If you have Windows 10 Pro Edition:
-    - First try to install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), or failing that;
-    - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
-If you have Windows 10 Home Edition:
-    - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
+ - First try to install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), or **failing that**;
+ - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).  
+If you have Windows 10 Home Edition:  
+ - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
 
 #### Apple macOS
-Either:
-    - Try this first, although it will not work with older versions of macOS. Install the [Docker Desktop (Mac)](https://hub.docker.com/editions/community/docker-ce-desktop-mac), or failing that:
-    - Install the [Docker Toolbox (Mac)](https://docs.docker.com/toolbox/toolbox_install_mac/).
+Either:  
+ - Try this first, although it will not work with older versions of macOS. Install the [Docker Desktop (Mac)](https://hub.docker.com/editions/community/docker-ce-desktop-mac), or failing that:  
+ - Install the [Docker Toolbox (Mac)](https://docs.docker.com/toolbox/toolbox_install_mac/).
 
-#### Linux: 
+#### Linux:  
 There are too many varieties of Linux to give precise instructions here, but hopefully you can locate documentation for getting Docker installed on your Linux distribution. It may already be installed. Note that Docker do list a number of versions of the Docker Engine for different Linux distributions, at <https://hub.docker.com/search/?type=edition&offering=community>
 
 
