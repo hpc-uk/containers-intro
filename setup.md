@@ -7,18 +7,25 @@ Please seek help at the start of the lesson if you have not been able to establi
 - [Bitbucket](http://bitbucket.org) is a code project repository site, akin to [GitHub](https://github.org). We will use Bitbucket to create a Docker container from a Docker image that you create.
 
 ### Software to install
-Unfortunately, in many common situations installing Docker on your laptop will not straightforward if you do not have a large amount of technical experience. We have helpers on hand that have worked their way through the install process.
-
-Even if you are unsuccessful in installing Docker on your laptop, you can still complete parts of this Docker lesson, just using a web browser.
+Unfortunately, in many common situations installing Docker on your laptop will not straightforward if you do not have a large amount of technical experience. We have helpers on hand that have worked their way through the install process but be prepared for some troubleshooting.
 
 Please try to install the appropriate software from the list below depending on the operating system that your laptop is running:
-- Microsoft Windows, either:
-    - Try this first, although it won't work with Windows 10 Home Edition. Install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), or failing that;
+#### Microsoft Windows
+**You must have admin rights to run docker!** Some parts of the lesson will work without running as admin but if you are unable to `Run as admin` on your machine some of this workshop might not work easily.
+If you have Windows 10 Pro Edition:
+    - First try to install the [Docker Desktop (Windows)](https://hub.docker.com/editions/community/docker-ce-desktop-windows), or failing that;
     - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
-- Apple macOS, either:
+If you have Windows 10 Home Edition:
+    - Install the [Docker Toolbox (Windows)](https://docs.docker.com/toolbox/toolbox_install_windows/).
+
+#### Apple macOS
+Either:
     - Try this first, although it will not work with older versions of macOS. Install the [Docker Desktop (Mac)](https://hub.docker.com/editions/community/docker-ce-desktop-mac), or failing that:
     - Install the [Docker Toolbox (Mac)](https://docs.docker.com/toolbox/toolbox_install_mac/).
-- Linux: there are too many varieties of Linux to give precise instructions here, but hopefully you can locate documentation for getting Docker installed on your Linux distribution. It may already be installed. Note that Docker do list a number of versions of the Docker Engine for different Linux distributions, at <https://hub.docker.com/search/?type=edition&offering=community>
+
+#### Linux: 
+There are too many varieties of Linux to give precise instructions here, but hopefully you can locate documentation for getting Docker installed on your Linux distribution. It may already be installed. Note that Docker do list a number of versions of the Docker Engine for different Linux distributions, at <https://hub.docker.com/search/?type=edition&offering=community>
+
 
 ### A quick tutorial on copy/pasting file contents from episodes of the lesson
 Let's say you want to copy text off the lesson website and paste it into a file named `myfile` in the current working directory of a shell window. This can be achieved in many ways, depending on your laptop's operating system, but routes I have found work for me:
