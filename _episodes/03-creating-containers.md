@@ -120,7 +120,7 @@ hello-world            latest              fce289e99eb9        4 months ago     
 ~~~
 {: .output}
 
-I can try to remove remove the `hello-world` image with a `docker image rm` command that includes the image name, such as:
+We can try to remove remove the `hello-world` image with a `docker image rm` command that includes the repository name, like so but...:
 ~~~
 $ docker image rm hello-world
 ~~~
@@ -129,6 +129,7 @@ $ docker image rm hello-world
 Error response from daemon: conflict: unable to remove repository reference "hello-world" (must force) - container e7d3b76b00f4 is using its referenced image fce289e99eb9
 ~~~
 {: .output}
+I get an error because their are containers created that depend on this image.
 
 ### What containers are running?
 As indicated by the error above there is still an existing container from this image.
