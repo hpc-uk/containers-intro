@@ -112,7 +112,7 @@ You will need two shell windows. You can continue using the shell you've used so
 
 Open the `Dockerfile` you created above with your favourite editor, and change its contents to match the following:
 ~~~
-FROM python:3
+FROM python:3-slim
 
 WORKDIR /usr/src/app
 
@@ -140,7 +140,7 @@ dd6f212ec984: Pull complete
 43288b101abf: Pull complete 
 cbc666ab4a65: Pull complete 
 Digest: sha256:d510b850194fab564abc3dfd22e626fa0c4ab3ce81118dab08a084ed3dcd24ac
-Status: Downloaded newer image for python:3
+Status: Downloaded newer image for python:3-slim
  ---> 338b34a7555c
 Step 2/4 : WORKDIR /usr/src/app
  ---> Running in 838063c90080
@@ -237,7 +237,7 @@ f.savefig("/data/output.png", bbox_inches='tight')
 
 Your Dockerfile will need to be changed to refer to this new script, as follows:
 ~~~
-FROM python:3
+FROM python:3-slim
 
 WORKDIR /usr/src/app
 
@@ -256,7 +256,7 @@ $ docker build -t csv-to-scatter-plot .
 {: .language-bash}
 ~~~
 Sending build context to Docker daemon  28.16kB
-Step 1/5 : FROM python:3
+Step 1/5 : FROM python:3-slim
  ---> 2fbd95050b66
 Step 2/5 : WORKDIR /usr/src/app
  ---> Using cache
