@@ -159,7 +159,19 @@ print("Hello world from Python")
 ~~~
 {: .language-python}
 
-Now re-run the command to build your image.
+Let's test run the python script before we re-bulid the image.
+~~~
+$ python test.py
+~~~
+{: .language-python}
+
+I got the following message printing **but** if you don't have python installed, you likely got an error about python not being installed on your machine.  This is one of the wonderful things about docker containers!
+~~~
+Hello world from Python
+~~~
+{: .output}
+
+Now let's re-run the command to build our image.
 
 ~~~
 $ docker build -t py-greeting .
