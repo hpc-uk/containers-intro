@@ -151,7 +151,7 @@ COPY failed: stat /var/lib/docker/tmp/docker-builder409382412/test.py: no such f
 ~~~
 {: .output}
 
-Our `Dockerfil`e made reference to a file on the host `test.py` that should have been in the directory that contained our `Dockerfile`. It was not present, so the building of the image failed. It is the `COPY test.py .` command in the `Dockerfile` that is trying to copy the file `test.py` into the working directory of the current image building operation.
+Our `Dockerfile` made reference to a file on the host `test.py` that should have been in the directory that contained our `Dockerfile`. It was not present, so the building of the image failed. It is the `COPY test.py .` command in the `Dockerfile` that is trying to copy the file `test.py` into the working directory of the current image building operation.
 
 Using your favourite editor, create the file "test.py" in the same directory as your Dockerfile, with the following contents:
 ~~~
