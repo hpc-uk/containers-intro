@@ -21,7 +21,7 @@ The Docker Hub is an online repository of container images, a vast number of whi
 {: .callout}
 
 ### Exploring r-base as an example Docker Hub page
-As an example of a Docker Hub page, let's explore the page for the R statistics language. The most basic form of containerised R is in the "r-base" image (which is endorsed by the Docker team). Open your web browser to <https://hub.docker.com/_/r-base> to see what is on a typical Docker hub software page.
+As an example of a Docker Hub page, let's explore the page for the Python programming language. The most basic form of containerised Python is in the "python" image (which is endorsed by the Docker team). Open your web browser to <https://hub.docker.com/_/python> to see what is on a typical Docker hub software page.
 
 The top-left provides information about the name, short description, popularity (i.e., over a million downloads in the case of this image), and endorsements.
 
