@@ -1,5 +1,5 @@
 ---
-title: "Creating containers"
+title: "Running containers"
 teaching: 10
 exercises: 0
 questions:
@@ -15,7 +15,7 @@ keypoints:
 - "The `docker container` command lists containers that have been created."
 ---
 
-### Creating a "hello world" container
+### Creating and running a "hello world" container
 
 > ## Reminder of terminology: images and containers
 > - Recall that a container "image" is the template from which particular instances of containers will be created.
