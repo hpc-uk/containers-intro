@@ -104,6 +104,53 @@ latest: digest: sha256:1d599b3e195e282648a30719f159422165656781de420ccb6173465ac
 
 In a web browser, open <https://hub.docker.com>, and on your user page you should now see your container listed, for anyone to use or build on.
 
+Now we can remove the local copy and get back the version on docker hub when ever we would like.
+~~~
+$ docker image rm dme26/my-greeting
+~~~
+{: .language-bash}
+~~~
+Untagged: dme26/my-greeting:latest
+Untagged: dme26/my-greeting@sha256:1d599b3e195e282648a30719f159422165656781de420ccb6173465ac29d2b7a
+~~~
+{: .output}
+
+Check your local images using `docker images` and then pull down the dockerhub version.
+
+~~~
+$ docker images
+~~~
+{: .language-bash}
+
+~~~
+REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
+~~~
+{: .output}
+
+~~~
+$ docker pull dme26/my-greeting
+~~~
+{: .language-bash}
+~~~
+Using default tag: latest
+latest: Pulling from dme26/my-greeting
+Digest: sha256:1d599b3e195e282648a30719f159422165656781de420ccb6173465ac29d2b7a
+Status: Downloaded newer image for sstevens/py-greeting:latest
+~~~
+{: .output}
+
+Let's take a look at our list of images now.
+
+~~~
+$ docker images
+~~~
+{: .language-bash}
+
+~~~
+REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
+dme26/my-greeting     latest              1d599b3e195e        42 minutes ago      143MB
+~~~
+{: .output}
 ### Copying files into your containers at build time
 
 Let's rework our container to run some code written in the Python programming language.
