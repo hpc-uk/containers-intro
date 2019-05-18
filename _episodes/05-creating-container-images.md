@@ -1,6 +1,6 @@
 ---
 title: "Creating your own container images"
-teaching: 30
+teaching: 45
 exercises: 0
 questions:
 - "How can I make my own Docker images?"
@@ -47,7 +47,7 @@ $ docker build -t my-greeting .
 Sending build context to Docker daemon  2.048kB
 Step 1/3 : FROM alpine
 latest: Pulling from library/alpine
-6c40cc604d8e: Pull complete 
+6c40cc604d8e: Pull complete
 Digest: sha256:b3dbf31b77fd99d9c08f780ce6f5282aba076d70a513a8be859d8d3a4d0c92b8
 Status: Downloaded newer image for alpine:latest
  ---> caf27325b298
@@ -97,7 +97,7 @@ $ docker push dme26/my-greeting
 {: .language-bash}
 ~~~
 The push refers to repository [docker.io/dme26/my-greeting]
-503e53e365f3: Mounted from library/alpine 
+503e53e365f3: Mounted from library/alpine
 latest: digest: sha256:1d599b3e195e282648a30719f159422165656781de420ccb6173465ac29d2b7a size: 528
 ~~~
 {: .output}
@@ -177,15 +177,15 @@ $ docker build -t py-greeting .
 Sending build context to Docker daemon  2.048kB
 Step 1/4 : FROM python:3-slim
 3: Pulling from library/python
-741437d97401: Pull complete 
-34d8874714d7: Pull complete 
-0a108aa26679: Pull complete 
-7f0334c36886: Pull complete 
-65c95cb8b3be: Pull complete 
-9107d7193263: Pull complete 
-dd6f212ec984: Pull complete 
-43288b101abf: Pull complete 
-cbc666ab4a65: Pull complete 
+741437d97401: Pull complete
+34d8874714d7: Pull complete
+0a108aa26679: Pull complete
+7f0334c36886: Pull complete
+65c95cb8b3be: Pull complete
+9107d7193263: Pull complete
+dd6f212ec984: Pull complete
+43288b101abf: Pull complete
+cbc666ab4a65: Pull complete
 Digest: sha256:d510b850194fab564abc3dfd22e626fa0c4ab3ce81118dab08a084ed3dcd24ac
 Status: Downloaded newer image for python:3-slim
  ---> 338b34a7555c

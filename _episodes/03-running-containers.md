@@ -1,6 +1,6 @@
 ---
 title: "Running containers"
-teaching: 10
+teaching: 25
 exercises: 0
 questions:
 - "How do I get Docker to perform computation?"
@@ -31,7 +31,7 @@ $ docker run hello-world
 ~~~
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
-1b930d010525: Pull complete 
+1b930d010525: Pull complete
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
 Status: Downloaded newer image for hello-world:latest
 
@@ -66,7 +66,7 @@ The message from "Hello from Docker!" is what's produced by instances of the hel
 ~~~
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
-1b930d010525: Pull complete 
+1b930d010525: Pull complete
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
 Status: Downloaded newer image for hello-world:latest
 ~~~
@@ -185,7 +185,7 @@ $ docker container rm 9c698655416a
 ~~~
 {: .output}
 
-If you want to remove all exited containers at once you can use the `docker containers prune` command. 
+If you want to remove all exited containers at once you can use the `docker containers prune` command.
 **Be careful** with this command.
 If you have containers you may want to reconnect to, you should not use this command.
 It will ask you if to confirm you want to remove these containers, see output below.
@@ -225,7 +225,7 @@ Now the result of `docker images` should no longer include the `hello-world` ima
 > There is lots of great documentation at <https://docs.docker.com/>, for example, detailed reference material and tutorials covering the use of the commands mentioned above.
 {: .callout}
 
-You can also use the `--help` flag to get more information. 
+You can also use the `--help` flag to get more information.
 Try out `docker --help`, `docker image --help`, and `docker container --help` to see more information.
 
 ### Conclusion

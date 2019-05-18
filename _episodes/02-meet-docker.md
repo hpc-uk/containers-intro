@@ -1,6 +1,6 @@
 ---
 title: "Introducing the Docker command line"
-teaching: 10
+teaching: 15
 exercises: 0
 questions:
 - "How do I interact with Docker?"
@@ -13,7 +13,7 @@ keypoints:
 ---
 ### Docker command line
 
-Start the Docker application that you installed in working through the setup instructions for this session. Note that this might not be necessary if your laptop is running Linux. 
+Start the Docker application that you installed in working through the setup instructions for this session. Note that this might not be necessary if your laptop is running Linux.
 
 The Docker application will usually provide a way for you to log in using the application's menu (macOS) or systray icon (Windows). This will require you to use your Docker Hub username and your password.
 

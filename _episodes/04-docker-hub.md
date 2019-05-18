@@ -1,6 +1,6 @@
 ---
 title: "Visiting the Docker Hub"
-teaching: 10
+teaching: 15
 exercises: 0
 questions:
 - "What is the Docker Hub, and why is it useful?"
@@ -20,7 +20,7 @@ The Docker Hub is an online repository of container images, a vast number of whi
 > Note that while the Docker Hub is well integrated into Docker functionality, the Docker Hub is certainly not required for all types of use of Docker containers. For example, some organisations may run container infrastructure that is entirely disconnected from the Internet.
 {: .callout}
 
-### Exploring r-base as an example Docker Hub page
+### Exploring Python image as an example Docker Hub page
 As an example of a Docker Hub page, let's explore the page for the Python programming language. The most basic form of containerised Python is in the "python" image (which is endorsed by the Docker team). Open your web browser to <https://hub.docker.com/_/python> to see what is on a typical Docker hub software page.
 
 The top-left provides information about the name, short description, popularity (i.e., over a million downloads in the case of this image), and endorsements.
