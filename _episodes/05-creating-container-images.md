@@ -25,10 +25,10 @@ The specification for how Docker should build images that you design is containe
 
 In a shell window:
 - `cd` to your `container-playground`;
-- create a new directory named `my-container-spec` within `container-playground`;
-- `cd` into your `my-container-spec` directory.
+- create a new directory named `my-greeting-spec` within `container-playground`;
+- `cd` into your `my-greeting-spec` directory.
 
-Within the new `my-container-spec` directory, use your favourite editor to create a file named `Dockerfile` that contains the following:
+Within the new `my-greeting-spec` directory, use your favourite editor to create a file named `Dockerfile` that contains the following:
 
 ~~~
 FROM alpine
@@ -40,7 +40,7 @@ CMD [ "/bin/cat", "/root/my_message" ]
 
 Run the following command to build your Docker image, noting that the period at the end of the line is important (it means "this directory"), and has a space before it.
 ~~~
-$ docker build -t my-container .
+$ docker build -t my-greeting .
 ~~~
 {: .language-bash}
 ~~~
@@ -60,14 +60,14 @@ Step 3/3 : CMD [ "/bin/cat", "/root/my_message" ]
 Removing intermediate container 6c44e5e59d9b
  ---> a6a95e96d0b8
 Successfully built a6a95e96d0b8
-Successfully tagged my-container:latest
+Successfully tagged my-greeting:latest
 ~~~
 {: .output}
 
 OK, now let's test that that container does what it's supposed to!
 
 ~~~
-$ docker run my-container
+$ docker run my-greeting
 ~~~
 {: .language-bash}
 ~~~
@@ -77,7 +77,7 @@ Greetings from my newly minted container.
 
 Now use your favourite editor to make a change to the message that's contained within the `Dockerfile`. As the plan is to share your container online, it's best to ensure that your message is suitable for public viewing, and you may want to avoid including your name, credit card numbers, etc.
 
-Rerun the `docker build -t my-container .` and `docker run my-container` commands to ensure that your image builds and that your containers function as expected.
+Rerun the `docker build -t my-greeting .` and `docker run my-greeting` commands to ensure that your image builds and that your containers function as expected.
 
 While it may not look like you have achieved much, you have already effected the combination of a lightweight Linux operating system with your specification to run a given command that can operate reliably on macOS, Microsoft Windows, Linux and on the cloud!
 
@@ -87,16 +87,16 @@ Images that you release publicly can be stored on the Docker Hub for free.
 
 Let's "push" to your account on the Docker Hub the image that you configured to output your chosen message, in the previous section.
 
-Note that so far, the image name `my-container` was used locally to your computer. On the Docker Hub, the name if your container must be prefixed by your user name (otherwise there would be many clashes when different users try to share images with the same name!).
+Note that so far, the image name `my-greeting` was used locally to your computer. On the Docker Hub, the name if your container must be prefixed by your user name (otherwise there would be many clashes when different users try to share images with the same name!).
 
 You will need to run two commands that are similar to the ones included below, **except** that you need to replace the instance of "dme26" on each line with your Docker Hub username (dme26 is my Docker Hub username!). A potential source of confusion is that you typically use your email address and not your login name to access the Docker Hub, however once authenticated your user ID is shown on the Docker Hub web pages.
 ~~~
-$ docker tag my-container:latest dme26/my-container
-$ docker push dme26/my-container
+$ docker tag my-greeting:latest dme26/my-greeting
+$ docker push dme26/my-greeting
 ~~~
 {: .language-bash}
 ~~~
-The push refers to repository [docker.io/dme26/my-container]
+The push refers to repository [docker.io/dme26/my-greeting]
 503e53e365f3: Mounted from library/alpine 
 latest: digest: sha256:1d599b3e195e282648a30719f159422165656781de420ccb6173465ac29d2b7a size: 528
 ~~~
@@ -123,12 +123,12 @@ CMD [ "python", "./test.py" ]
 
 In your image building shell run the command to try to build your image (this will fail!):
 ~~~
-$ docker build -t another-greeting .
+$ docker build -t py-greeting .
 ~~~
 {: .language-bash}
 ~~~
 Sending build context to Docker daemon  2.048kB
-Step 1/4 : FROM python:3
+Step 1/4 : FROM python:3-slim
 3: Pulling from library/python
 741437d97401: Pull complete 
 34d8874714d7: Pull complete 
@@ -162,12 +162,12 @@ print("Hello world from Python")
 Now re-run the command to build your image.
 
 ~~~
-$ docker build -t another-greeting .
+$ docker build -t py-greeting .
 ~~~
 {: .language-bash}
 ~~~
 Sending build context to Docker daemon  3.072kB
-Step 1/4 : FROM python:3
+Step 1/4 : FROM python:3-slim
  ---> 2fbd95050b66
 Step 2/4 : WORKDIR /usr/src/app
  ---> Using cache
@@ -179,7 +179,7 @@ Step 4/4 : CMD [ "python", "./test.py" ]
 Removing intermediate container 5ce48493838d
  ---> a1d96db7bc5a
 Successfully built a1d96db7bc5a
-Successfully tagged another-greeting:latest
+Successfully tagged py-greeting:latest
 ~~~
 {: .output}
 
@@ -187,7 +187,7 @@ In your testing shell, within your `container-playground` directory, create a di
 
 Test your container using the following command, which should produce the output shown below.
 ~~~
-$ docker run another-greeting
+$ docker run py-greeting
 ~~~
 {: .language-bash}
 ~~~
