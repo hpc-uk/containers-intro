@@ -221,15 +221,17 @@ The reason that there is a few lines output, is that a given image may be create
 Any layers that are used by multiple Docker images will only be stored once.
 Now the result of `docker images` should no longer include the `hello-world` image.
 
+> ## The Docker official documentation is helpful!
+> There is lots of great documentation at <https://docs.docker.com/>, for example, detailed reference material and tutorials covering the use of the commands mentioned above.
+{: .callout}
 
+You can also use the `--help` flag to get more information. 
+Try out `docker --help`, `docker image --help`, and `docker container --help` to see more information.
 
 ### Conclusion
 
 You have now successfully acquired a Docker image file to your computer, and have created a Docker container from it. While this already effects a reproducible computational environment, the image contents are not under your control, so we look at this topic, after a quick discussion about the Docker Hub.
 
-> ## The Docker official documentation is helpful!
-> There is lots of great documentation at <https://docs.docker.com/>, for example, detailed reference material and tutorials covering the use of the commands mentioned above.
-{: .callout}
 
 {% include links.md %}
 
