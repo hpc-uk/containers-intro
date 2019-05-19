@@ -401,6 +401,8 @@ You should see the PDF and PNG file update appropriately.
 
 You have now successfully implemented an image that creates containers that transform input data through a stable, reproducible computational environment into output, in the form of plot images.
 
+### Creating an image interactively
+
 {% include links.md %}
 
 {% comment %}
