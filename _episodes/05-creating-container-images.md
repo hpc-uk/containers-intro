@@ -403,6 +403,193 @@ You have now successfully implemented an image that creates containers that tran
 
 ### Creating an image interactively
 
+Occasionally you might need to work interactively with an docker container.  We will work interactively and learn how to create an image from the container.  This method isn't as reproducible as using a `Dockerfile` but can be useful in some circumstances.  For this example we will build an image with the git repo for these lessons in it.
+
+
+First let's run a docker container interactively.  We can do this by using the `-i` for interactive mod and `-t` flag for to alocate a pseudo-TTY.
+~~~
+$ docker run -it ubuntu
+~~~
+{: .language-bash}
+
+Now in the image we can see a new different looking prompt.
+~~~
+root@747fcdb9727a:/#
+~~~
+{: .language-bash}
+
+Next we will update `apt-get` (the package management system in ubuntu) and install git
+
+~~~
+# apt-get update
+~~~
+{: .language-bash}
+~~~
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [109 kB]
+Get:2 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+Get:5 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [129 kB]
+Get:6 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [827 kB]
+Get:7 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.7 kB]
+Get:8 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [553 kB]
+Get:9 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [6113 B]
+Get:3 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+Get:4 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+Get:10 http://archive.ubuntu.com/ubuntu xenial/universe Sources [9802 kB]
+Get:11 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
+Get:12 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages [14.1 kB]
+Get:13 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]
+Get:14 http://archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [176 kB]
+Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/universe Sources [320 kB]
+Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [1236 kB]
+Get:17 http://archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages [13.1 kB]
+Get:18 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [965 kB]
+Get:19 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [19.1 kB]
+Get:20 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [7942 B]
+Get:21 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [8532 B]
+Fetched 4637 kB in 4s (1153 kB/s)
+Reading package lists... Done
+~~~
+{: .output}
+~~~
+# apt-get instal -y git-core
+~~~
+{: .language-bash}
+~~~
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  ca-certificates git git-man ifupdown iproute2 isc-dhcp-client isc-dhcp-common krb5-locales less libasn1-8-heimdal libatm1 libbsd0
+  libcurl3-gnutls libdns-export162 libedit2 liberror-perl libexpat1 libffi6 libgdbm3 libgmp10 libgnutls30 libgssapi-krb5-2 libgssapi3-heimdal
+  libhcrypto4-heimdal libheimbase1-heimdal libheimntlm0-heimdal libhogweed4 libhx509-5-heimdal libidn11 libisc-export160 libk5crypto3
+  libkeyutils1 libkrb5-26-heimdal libkrb5-3 libkrb5support0 libldap-2.4-2
+  ...
+  TRUNCATED
+~~~
+{: .output}
+
+~~~
+# git --version
+~~~
+{: .language-bash}
+~~~
+git version 2.7.4
+~~~
+{: .output}
+
+
+Now we can exit the container and commit it to an image.
+~~~
+# exit
+~~~
+{: .language-bash}
+
+Once the image is close we can list it to find the name of that image, in this case `adoring_euclid`
+~~~
+$ docker ps -a
+~~~
+{: .language-bash}
+~~~
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
+747fcdb9727a        ubuntu              "/bin/bash"         2 minutes ago       Exited (0) 24 seconds ago                       adoring_euclid
+~~~
+{: .output}
+
+Now we can commit it (like a git repo) and give the new image a name.
+~~~
+$ docker commit -m "installing git" adoring_euclid ubuntu_w_git
+~~~
+{: .language-bash}
+~~~
+sha256:5023d817090cc96298a7e7206cac5bedb7787ad103faefde395e77741db68638
+~~~
+{: .output}
+
+Now let's look at our images to see the new one we just created
+~~~
+$ docker images
+~~~
+{: .language-bash}
+~~~
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+ubuntu_w_git           latest              5023d817090c        2 minutes ago       249MB
+ubuntu                 latest              2a4cca5ac898        16 months ago       111MB
+~~~
+{: .output}
+
+We can also look at the history of our image using the `docker history` command. The output of this command shows our commit message under the `COMMENT` column.
+~~~
+$docker history ubuntu_w_git
+~~~
+{: .language-bash}
+~~~
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+5023d817090c         4 minutes ago      /bin/bash                                       137MB               installing git
+2a4cca5ac898        16 months ago       /bin/sh -c #(nop)  CMD ["/bin/bash"]            0B
+<missing>           16 months ago       /bin/sh -c mkdir -p /run/systemd && echo 'do…   7B
+<missing>           16 months ago       /bin/sh -c sed -i 's/^#\s*\(deb.*universe\)$…   2.76kB
+<missing>           16 months ago       /bin/sh -c rm -rf /var/lib/apt/lists/*          0B
+<missing>           16 months ago       /bin/sh -c set -xe   && echo '#!/bin/sh' > /…   745B
+<missing>           16 months ago       /bin/sh -c #(nop) ADD file:affda766655e01cbd…   111MB
+~~~
+{: .output}
+
+Next lets reattach to that same image and add the repository.  We could have done this before we exited but now we can learn how to restart and attach to an exited container.
+
+First we need to restart the container in question using the `docker start` command.
+~~~
+$ docker start adoring_euclid
+~~~
+{: .language-bash}
+~~~
+adoring_euclid
+~~~
+{: .output}
+
+~~~
+$ docker attach adoring_euclid
+~~~
+{: .language-bash}
+
+Now inside the image we can clone the repository.
+~~~
+# git clone https://github.com/UW-Madison-DataScience/docker-introduction.git
+~~~
+{: .language-bash}
+
+Output not shown.
+
+~~~
+# exit
+~~~
+{: .language-bash}
+
+Finally we can commit this new version of the container as it's own image.
+
+~~~
+$ docker commit -m "cloned docker-intro repo" adoring_euclid docker-intro-repo
+~~~
+{: .language-bash}
+~~~
+sha256:e3ff0de14f37c76d849d89225123e28ad97385fdba8b8ec51fdbcdfaddb4ceb3
+~~~
+{: .output}
+
+Now we can list our images and see we have the two images save from different states of the container.
+
+~~~
+$ docker images
+~~~
+{: .language-bash}
+~~~
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+docker-intro-repo      latest              e3ff0de14f37        43 seconds ago      254MB
+ubuntu_w_git           latest              5023d817090c        9 minutes ago       249MB
+ubuntu                 latest              2a4cca5ac898        16 months ago       111MB
+~~~
+{: .output}
+
+
 {% include links.md %}
 
 {% comment %}
